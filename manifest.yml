@@ -1,0 +1,9 @@
+applications:
+- path: calc-app/target/calc-app-1.0.0-SNAPSHOT.jar
+  memory: 256M
+  instances: 1
+  #domain: eu-gb.mybluemix.net
+  name: sjostric-test
+  host: sjostric-test
+  disk_quota: 256M
+  buildpack: java_buildpack
