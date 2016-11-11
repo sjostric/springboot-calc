@@ -11,3 +11,5 @@ The project build produces 2 main artifacts; a runnable jar and a docker image (
 * Docker: ```docker run -p 8080:8080 calc-app-docker```
 * To CloudFoundry: ```cf push -f manifest.yml```
 
+## Test
+For local deployment, direct the broswer to: ```http://localhost:8080/calc/add/1/5```
