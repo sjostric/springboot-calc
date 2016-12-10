@@ -17,7 +17,7 @@ public class CalcController {
 	private static final Logger logger = LoggerFactory.getLogger(CalcController.class);
 
 	@RequestMapping("calc/add/{a}/{b}")
-	public Integer products(@PathVariable Integer a, @PathVariable Integer b) {
+	public Integer add(@PathVariable Integer a, @PathVariable Integer b) {
 		logger.info(String.format("Doing addition: %s + %s", a, b));
 		return new Calculation(a, b, Calculation.OP.ADD).calc().result();
 	}

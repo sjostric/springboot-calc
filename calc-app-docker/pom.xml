@@ -62,9 +62,21 @@
 							<goal>build</goal>
 						</goals>
 					</execution>
+					<execution>
+						<id>push-image</id>
+						<!-- changed from deploy -->
+						<phase>install</phase>
+						<goals>
+							<goal>push</goal>
+						</goals>
+						<configuration>
+							<imageName>sjostric/calc-app:${project.version}</imageName>
+						</configuration>
+					</execution>
 				</executions>
 				<configuration>
-					<imageName>${project.artifactId}</imageName>
+					<imageName>sjostric/calc-app</imageName>
+					<useConfigFile>true</useConfigFile>
 					<dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
 					<resources>
 						<resource>
@@ -73,6 +85,11 @@
 							<include>calc-app-${project.version}.jar</include>
 						</resource>
 					</resources>
+					<forceTags>true</forceTags>
+					<imageTags>
+						<imageTag>${project.version}</imageTag>
+						<imageTag>latest</imageTag>
+					</imageTags>
 				</configuration>
 			</plugin>
 
