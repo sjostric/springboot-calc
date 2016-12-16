@@ -1,17 +1,17 @@
-app.controller('helloController', ['$scope', '$http', function($scope, $http) {
-	$scope.message = "unset";
+app.controller('helloController', [ '$scope', '$http', function($scope, $http) {
+	$scope.result = "unset";
 
-	$scope.loadMessage = function() {
-		console.log('Fetching message');
+	$scope.calculate = function(a, b) {
+		console.log('Calculating: ' + a + '+' + b);
 		$http({
 			method : 'GET',
-			url : '/hello'
+			url : '/calc/add/' + a + '/' + b
 		}).then(function successCallback(response) {
 			console.log('Success');
-			$scope.message = response.data.message;
+			$scope.result = response.data;
 		}, function errorCallback(response) {
 			console.log('Failure');
 		});
 	};
-	$scope.loadMessage();
-}]);
+	$scope.calculate(32, 56);
+} ]);
